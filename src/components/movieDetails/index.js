@@ -9,10 +9,7 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
-import { getCredits } from "../../api/tmdb-api";
-import {getMovieReviews} from "../../api/tmdb-api";
-import { useQuery } from 'react-query';
-import Spinner from '../../components/spinner';
+
 
 const root = {
     display: "flex",
@@ -25,31 +22,7 @@ const root = {
 const chip = { margin: 0.5 };
 
 const MovieDetails =({ movie }) => {  
-  console.log("本电影的id是");
-  console.log(movie.id);
-  console.log("本电影的名称是");
-  console.log(movie.original_title);
-  console.log("本电影的上映时间是");
-  console.log(movie.release_date);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  //传进来的movie也没问题，是一整个movie的所有信息，有极小可能是movie.id和需要的id不是一个东西，
-  // const { data, error, isLoading, isError } = useQuery(
-  //   ["movie", { id: movie.id }], 
-  //   getMovie
-  //   );
-  // if (isLoading) {
-  //   return <Spinner />
-  // }
-
-  // if (isError) {
-  //   // return <h1>{error.message}</h1>
-  //   console.log(error.message);
-  // }
-  // console.log("至少运行了");
-  // console.log(data);
-
-  //useQuery我确实不知道他有什么问题，这样，我先能取出来，我在去对他进行重构
-  
 
   return (
     <>
