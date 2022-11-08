@@ -39,25 +39,20 @@ describe("Check upcoming page ", () => {
             cy.get(".MuiCardHeader-content")
             .eq(1)
             .find("p")
-            .contains(movies[1].title);
+            .contains(upcoming[1].title);
         })
 
-        it("icons of upcoming page are correct", () => {
-            cy.get("svg[data-testid='FavoriteIcon").should("not.exist");
-            cy.get("svg[data-testid='PlaylistAddIcon").should("exist");
-        })
+        // it("images of upcoming page are correct", () => {
+        //     cy.get(`.MuiCardMedia-root[style = 'background-image: url("https://image.tmdb.org/t/p/w500//${upcoming[1].poster_path}")']`)
+        //     // 
+        // })
 
+
+        it("buttons of upcoming page are correct", () => {
+            cy.get(".MuiSvgIcon-root[data-testid = 'PlaylistAddIcon']")
+            cy.get(".MuiButtonBase-root[aria-label='add to playlist']").eq(0).click()
+        })
         
-
-        // it(" test the reviews", () => {
-        //     cy.get("button").contains("Reviews").click();
-        //     cy.wait(1000);
-        //     cy.get("a").contains("Full Review").eq(0).click();//我点了第一个全评论
-        //     cy.wait(1000);
-        //     cy.get("p").eq(0).contains(reviews[0].author);
-        //     cy.get("p").eq(1).contains(reviews[0].content.substring(0, 7));
-        //     //   cy.url().should("include", `/movies/${movies[0].id}`);MuiTable-root
-        // });
     });
 
 
