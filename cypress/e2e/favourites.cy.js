@@ -42,5 +42,17 @@ describe("The favourites feature", () => {
         .find("p")
         .contains(movies[3].title);
     });
+
+    it("the deleting movie function is correct", () => {
+      cy.get("button[aria-label='remove from favorites']").eq(0).click();
+      //点一下删除
+      cy.get(".MuiCardHeader-content").should("have.length", 1);
+      //剩下的一个是对的那个
+      cy.get(".MuiCardHeader-content")
+        .eq(0)
+        .find("p")
+        .contains(movies[3].title);
+    });
+
   });
 });
