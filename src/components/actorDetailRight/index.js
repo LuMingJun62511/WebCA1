@@ -1,31 +1,28 @@
 import React from "react";
-import Paper from "@mui/material/Paper";
-import CertainCredit from '../certainCredit/';
 import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+import ActorCredits from '../actorCredits/';
 
-const ActorCredits = ({ actorCreditsCast }) => {
-    let credits = []
-    for (var i in actorCreditsCast) {
-        if (!credits[actorCreditsCast[i].release_date.substr(0, 4)]) {
-            credits[actorCreditsCast[i].release_date.substr(0, 4)] = [actorCreditsCast[i]];
-        } else {
-            for (var j in credits) {
-                if (credits[j][0].release_date.substr(0, 4) === actorCreditsCast[i].release_date.substr(0, 4)) {
-                    credits[j].push(actorCreditsCast[i])
-                }
-            }
-        }
-    }
-    credits = credits.reverse();
+const ActorDetailRight = ({ actorDetails, actorCredits }) => {
+  return (
+    <Paper>
+      <Typography component="p" sx ={{fontSize:30}} >
+        {actorDetails.name}
+      </Typography>
+      <Typography component="p">
+        Personal Introduction
+      </Typography>
 
-    let creditsPapers = credits.map((creditsList) => (
-        <Paper key={creditsList[0].release_date.substr(0, 4)} sx={{my:1}}>
-            <Typography >{creditsList[0].release_date.substr(0, 4)}</Typography>
-            <CertainCredit creditsList={creditsList}></CertainCredit>
-        </Paper>
-    ))
+      <Typography component="p">
+        {actorDetails.biography}
+      </Typography>
 
-    return creditsPapers;
-
+      <Grid>
+        <ActorCredits actorCreditsCast = {actorCredits.cast}/>
+      </Grid>
+    </Paper>
+  );
 };
-export default ActorCredits;
+export default ActorDetailRight;
+
