@@ -1,7 +1,3 @@
-//主要就是，第一，常规的，比如字符
-//第二是个数，各个
-//第三是信息，
-//第四是分页，分页要比照跳转是不是到了正确的页面
 let popular1;
 let popular2;
 let popular3;
@@ -89,12 +85,16 @@ describe("Check popular page", () => { //最外围的主要测试，
         })
     });
 
-    // describe("jump to actor detail is correct", () => {
-    //     it("test navigate to the actor's detail information ", () => {
-    //         cy.get(".MuiCardContent-root").eq(0).click();
-    //         cy.url().should("include", `/actors/${actors[0].id}`)
-    //     })//测试跳转的成功不成功
-    // });
+    describe("jump to actor detail is correct", () => {
+        beforeEach(() => {
+            cy.visit("/people/popular");
+            cy.wait(1000);
+        })
+        it("test navigate to the actor's detail information ", () => {
+            cy.get(".MuiTypography-h6").eq(1).click();
+            cy.url().should("include", `/actors/${popular1[0].id}`)
+        })//测试跳转的成功不成功
+    });
 });
 
 
