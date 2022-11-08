@@ -26,7 +26,7 @@ install_dependencies:
     - npm ci
   artifacts:
     paths:
-      - MYTMDB/node_modules/
+      - node_modules/
 
 bundle_app:
   stage: build
@@ -34,7 +34,7 @@ bundle_app:
     - npm run build
   artifacts:
     paths:
-      - MYTMDB/build/
+      - build/
 
 # exercise_job:
 #   stage: exercise

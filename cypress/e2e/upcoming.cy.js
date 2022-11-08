@@ -35,9 +35,11 @@ describe("Check upcoming page ", () => {
     });
 
     describe("The dynamic data of upcoming page is correct", () => {
-        it("header of upcoming page is correct", () => {
-            cy.get("h3").contains("Upcoming Movies");
-            cy.get(".MuiCardHeader-root").should("have.length", 20);
+        it("title of upcoming page is correct", () => {
+            cy.get(".MuiCardHeader-content")
+            .eq(1)
+            .find("p")
+            .contains(movies[1].title);
         })
 
         it("icons of upcoming page are correct", () => {
