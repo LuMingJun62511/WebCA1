@@ -1,6 +1,6 @@
 let actors;
 let movies;
-describe("Check review content", () => { //最外围的主要测试，
+describe("Check actor list", () => { //最外围的主要测试，
     before(() => {
         cy.request(
             `https://api.themoviedb.org/3/discover/movie?api_key=${Cypress.env("TMDB_KEY")}&language=en-US&include_adult=false&include_video=false&page=1`
