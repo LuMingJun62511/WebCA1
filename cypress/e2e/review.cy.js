@@ -50,7 +50,6 @@ describe("Check review content", () => { //最外围的主要测试，
             cy.get("th").contains("Author")
             cy.get("th").contains("Excerpt")
             cy.get("th").contains("More")
-
         })
 
         it(" test the reviews", () => {

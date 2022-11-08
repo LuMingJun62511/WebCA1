@@ -57,13 +57,20 @@ describe("Check popular page", () => { //最外围的主要测试，
     });
 
     describe("pagination part test", () => {
+        beforeEach(() => {
+            cy.visit("/people/popular");
+            cy.wait(1000);
+        })
         it("select one page to jump ", () => {
             cy.get("button[aria-label='Go to page 3']").eq(0).click();
+            cy.wait(1000);
             cy.get(".MuiTypography-h6").eq(1).contains(popular3[0].name)
         })
         it("jump to previous pagepage", () => {
             cy.get("button[aria-label='Go to page 2']").eq(0).click();
+            cy.wait(1000);
             cy.get("button[aria-label='Go to previous page']").eq(0).click();
+            cy.wait(1000);
             cy.get(".MuiTypography-h6").eq(1).contains(popular1[0].name)
 
             cy.get("button[aria-label='Go to previous page']").eq(0).should('be.disabled')
@@ -71,10 +78,13 @@ describe("Check popular page", () => { //最外围的主要测试，
         })
         it("jump to next pagepage", () => {
             cy.get("button[aria-label='Go to page 2']").eq(0).click();
+            cy.wait(1000);
             cy.get("button[aria-label='Go to next page']").eq(0).click();
+            cy.wait(1000);
             cy.get(".MuiTypography-h6").eq(1).contains(popular3[0].name)
 
             cy.get("button[aria-label='Go to page 10']").eq(0).click();
+            cy.wait(1000);
             cy.get("button[aria-label='Go to next page']").eq(0).should('be.disabled')
         })
     });
