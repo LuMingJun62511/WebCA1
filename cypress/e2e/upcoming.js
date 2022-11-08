@@ -25,10 +25,27 @@ describe("Check upcoming page ", () => {
         it("header of upcoming page is correct", () => {
             cy.get("h3").contains("Upcoming Movies");
             cy.get(".MuiCardHeader-root").should("have.length", 20);
+        })
+
+        it("icons of upcoming page are correct", () => {
             cy.get("svg[data-testid='FavoriteIcon").should("not.exist");
             cy.get("svg[data-testid='PlaylistAddIcon").should("exist");
-
         })
+
+    });
+
+    describe("The dynamic data of upcoming page is correct", () => {
+        it("header of upcoming page is correct", () => {
+            cy.get("h3").contains("Upcoming Movies");
+            cy.get(".MuiCardHeader-root").should("have.length", 20);
+        })
+
+        it("icons of upcoming page are correct", () => {
+            cy.get("svg[data-testid='FavoriteIcon").should("not.exist");
+            cy.get("svg[data-testid='PlaylistAddIcon").should("exist");
+        })
+
+        
 
         // it(" test the reviews", () => {
         //     cy.get("button").contains("Reviews").click();
@@ -40,4 +57,7 @@ describe("Check upcoming page ", () => {
         //     //   cy.url().should("include", `/movies/${movies[0].id}`);MuiTable-root
         // });
     });
+
+
+
 });
