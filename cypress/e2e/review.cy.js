@@ -42,10 +42,4 @@ describe("Check review content", () => { //最外围的主要测试，
             //   cy.url().should("include", `/movies/${movies[0].id}`);MuiTable-root
         });
     });
-
-
-
-
-
-
 });
