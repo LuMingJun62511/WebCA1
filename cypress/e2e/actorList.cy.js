@@ -24,15 +24,13 @@ describe("Check actor list", () => { //最外围的主要测试，
     })
 
     describe("dynamic data in actor list is correct", () => {
-
         it("test the length of actor list", () => {
             cy.get(".MuiBox-root").should("have.length", actors.length + 1);//这个总是多出来的一个是谁？
         })
-
         it("test navigate to the actor's detail information ", () => {
             cy.get(".MuiCardContent-root").eq(0).click();
             cy.url().should("include", `/actors/${actors[0].id}`)
-        })//测试跳转的成功不成功
+        })
 
         it("test the name and character of certain actor", () => {
             cy.get(".MuiCardContent-root").eq(0).contains(actors[0].name);
