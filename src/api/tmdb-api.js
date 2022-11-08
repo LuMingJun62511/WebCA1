@@ -117,3 +117,19 @@ export const getMovieCredits = ({ queryKey }) => {
       throw error
     });
 }
+
+export const getPopular = ({ queryKey }) => {
+  const [, pagePart] = queryKey;
+  const { page } = pagePart;
+  return fetch(
+    `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`
+    ).then((response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error
+    });
+}
