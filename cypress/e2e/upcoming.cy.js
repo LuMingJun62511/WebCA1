@@ -8,18 +8,15 @@ describe("Check upcoming page ", () => {
             .then((response) => {
                 upcoming = response.results;
             });
-        //先取upcoming的信息
     });
     it("able to go to upcoming page", () => {
         cy.visit("/");
         cy.get("button").contains("Upcoming").click();
         cy.url().should("include", `/upcoming`);
-
     })
 
     beforeEach(() => {
         cy.visit(`/movies/upcoming`);
-        cy.wait(1000);
     })
     describe("The static data of upcoming page is correct", () => {
         it("header of upcoming page is correct", () => {
@@ -41,11 +38,6 @@ describe("Check upcoming page ", () => {
             .find("p")
             .contains(upcoming[1].title);
         })
-
-        // it("images of upcoming page are correct", () => {
-        //     cy.get(`.MuiCardMedia-root[style = 'background-image: url("https://image.tmdb.org/t/p/w500//${upcoming[1].poster_path}")']`)
-        //     // 
-        // })
 
 
         it("buttons of upcoming page are correct", () => {

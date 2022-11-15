@@ -1,5 +1,5 @@
 let movies;
-let movieId; // Enola Holmes movie id
+let movieId;
 let reviews;
 describe("Check review content", () => { //最外围的主要测试，
     before(() => {
@@ -19,12 +19,10 @@ describe("Check review content", () => { //最外围的主要测试，
         })
         it("static data in Review form is correct", () => {
             cy.get("svg[data-testid='RateReviewIcon']").eq(0).click();
-            cy.wait(1000);
             cy.get("h2").contains("Write a review");
         })
         it("dynamic data in Review form is correct", () => {
             cy.get("svg[data-testid='RateReviewIcon']").eq(0).click();
-            cy.wait(1000);
             cy.get(".MuiTypography-root").contains(movies[2].title)
 
         })
@@ -42,24 +40,19 @@ describe("Check review content", () => { //最外围的主要测试，
         });
         beforeEach(() => {
             cy.visit(`/movies/${movies[1].id}`);
-            cy.wait(1000);
         })
         it("header of review is correct", () => {
-            cy.get("button").contains("Reviews").click();
-            cy.wait(1000);
+            cy.get(".MuiFab-root").contains("Reviews").click();
             cy.get("th").contains("Author")
             cy.get("th").contains("Excerpt")
             cy.get("th").contains("More")
         })
 
         it(" test the reviews", () => {
-            cy.get("button").contains("Reviews").click();
-            cy.wait(1000);
-            cy.get("a").contains("Full Review").eq(0).click();//我点了第一个全评论
-            cy.wait(1000);
+            cy.get(".MuiFab-root").contains("Reviews").click();
+            cy.get(".full").contains("Full Review").eq(0).click();
             cy.get("p").eq(0).contains(reviews[0].author);
             cy.get("p").eq(1).contains(reviews[0].content.substring(0, 7));
-            //   cy.url().should("include", `/movies/${movies[0].id}`);MuiTable-root
         });
     });
 });

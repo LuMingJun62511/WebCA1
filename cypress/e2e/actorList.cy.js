@@ -20,7 +20,7 @@ describe("Check actor list", () => { //最外围的主要测试，
 
     beforeEach(() => {
         cy.visit(`/movies/${movies[4].id}`);
-        cy.wait(1000);
+        // cy.wait(1000);
     })
 
     describe("dynamic data in actor list is correct", () => {
