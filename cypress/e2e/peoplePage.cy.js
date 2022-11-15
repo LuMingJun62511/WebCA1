@@ -47,7 +47,7 @@ describe("Check popular page", () => { //最外围的主要测试，
         })
         it("test the name of certain people", () => {
             cy.get(".MuiPaper-root").should("have.length", popular1.length + 1);
-            cy.get(".MuiTypography-h6").eq(1).contains(popular1[0].name);
+            cy.get("h2").eq(0).contains(popular1[0].name);
         })
     });
 
@@ -57,12 +57,12 @@ describe("Check popular page", () => { //最外围的主要测试，
         })
         it("select one page to jump ", () => {
             cy.get("button[aria-label='Go to page 3']").eq(0).click();
-            cy.get(".MuiTypography-h6").eq(1).contains(popular3[0].name)
+            cy.get("h2").eq(0).contains(popular3[0].name)
         })
         it("jump to previous pagepage", () => {
             cy.get("button[aria-label='Go to page 2']").eq(0).click();
             cy.get("button[aria-label='Go to previous page']").eq(0).click();
-            cy.get(".MuiTypography-h6").eq(1).contains(popular1[0].name)
+            cy.get("h2").eq(0).contains(popular1[0].name)
 
             cy.get("button[aria-label='Go to previous page']").eq(0).should('be.disabled')
 
@@ -70,7 +70,7 @@ describe("Check popular page", () => { //最外围的主要测试，
         it("jump to next pagepage", () => {
             cy.get("button[aria-label='Go to page 2']").eq(0).click();
             cy.get("button[aria-label='Go to next page']").eq(0).click();
-            cy.get(".MuiTypography-h6").eq(1).contains(popular3[0].name)
+            cy.get("h2").eq(0).contains(popular3[0].name)
             cy.get("button[aria-label='Go to page 10']").eq(0).click();
             cy.get("button[aria-label='Go to next page']").eq(0).should('be.disabled')
         })
@@ -79,10 +79,9 @@ describe("Check popular page", () => { //最外围的主要测试，
     describe("jump to actor detail is correct", () => {
         beforeEach(() => {
             cy.visit("/people/popular");
-            cy.get(".MuiPaper-root").should("have.length", popular1.length + 1);
         })
         it("test navigate to the actor's detail information ", () => {
-            cy.get(".MuiTypography-h6").eq(1).click();
+            cy.get("h2").eq(0).click();
             cy.url().should("include", `/actors/${popular1[0].id}`)
         })
     });
