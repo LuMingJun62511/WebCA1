@@ -42,8 +42,7 @@ Open browser at: http://localhost:3000
 
 
 ## Independent learning (If relevant).
-想想，当时我做这个东西的时候学会了什么，
-Itemize the technologiestechniques you researched independently and adopted in your project, 
-i.e. aspects not covered in the lectureslabs. Include the source code filenames that illustrate these 
-(we do not require code excerpts) and provide references to the online resources that helped you (articlesblogs).
+I learned how to use pagination, it can navigate us to different pages from  the mui doc. 
+Second one is code splitting, this technology can make the webpage temporarily not render invisible content, making the webpage load faster, the code is detailed in movieDetails.
+
 
