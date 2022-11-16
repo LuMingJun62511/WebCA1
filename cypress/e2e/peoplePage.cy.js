@@ -4,16 +4,14 @@ let popular1;
 let popular2;
 let popular3;
 
-describe("Check popular page", () => { //最外围的主要测试，
+describe("Check popular page", () => {
 
     before(() => {
-        cy.requestPopular(1).its("body").then((response) => {cy.writedown(popular1,response.results)});
-        cy.requestPopular(1).its("body").then((response) => {console.log(response.results)});
-        //为什么传不进去？
-        // cy.requestPopular(2).its("body").then((response) => {cy.writedown(popular2,response.results)});
-        // cy.requestPopular(3).its("body").then((response) => {cy.writedown(popular3,response.results)});
-
+        cy.requestPopular(1).its("body").then((response) => {popular1 = response.results});
+        cy.requestPopular(2).its("body").then((response) => {popular2 = response.results});
+        cy.requestPopular(3).its("body").then((response) => {popular3 = response.results});
     })
+
     before(() => {
         cy.request(
             `https://api.themoviedb.org/3/person/popular?api_key=${Cypress.env("TMDB_KEY")}&language=en-US&page=1`
