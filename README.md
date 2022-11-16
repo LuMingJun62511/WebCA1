@@ -20,10 +20,10 @@ pagination technology
 
 ## Setup requirements.
 
-Clone the repo: https://github.com/LuMingJun62511/MyTMDB.git
-cd MyTMDB
-Install packages: npm install 
-Open browser at: http://localhost:3000
++ Clone the repo: https://github.com/LuMingJun62511/MyTMDB.git
++ cd MyTMDB
++ Install packages: npm install 
++ Open browser at: http://localhost:3000
 
 
 ## API endpoints.
