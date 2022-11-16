@@ -1,12 +1,16 @@
 {
   "files": {
-    "main.js": "/MyTMDB/static/js/main.49e15098.js",
+    "main.js": "/MyTMDB/static/js/main.2be25c5d.js",
+    "static/js/259.5ef56dbc.chunk.js": "/MyTMDB/static/js/259.5ef56dbc.chunk.js",
+    "static/js/167.f9442f53.chunk.js": "/MyTMDB/static/js/167.f9442f53.chunk.js",
     "static/media/pexels-dziana-hasanbekava-5480827.jpg": "/MyTMDB/static/media/pexels-dziana-hasanbekava-5480827.6123c500508cea5447e7.jpg",
     "static/media/film-poster-placeholder.png": "/MyTMDB/static/media/film-poster-placeholder.9a8182eb4c8ae70fe602.png",
     "index.html": "/MyTMDB/index.html",
-    "main.49e15098.js.map": "/MyTMDB/static/js/main.49e15098.js.map"
+    "main.2be25c5d.js.map": "/MyTMDB/static/js/main.2be25c5d.js.map",
+    "259.5ef56dbc.chunk.js.map": "/MyTMDB/static/js/259.5ef56dbc.chunk.js.map",
+    "167.f9442f53.chunk.js.map": "/MyTMDB/static/js/167.f9442f53.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.49e15098.js"
+    "static/js/main.2be25c5d.js"
   ]
 }
