@@ -42,7 +42,7 @@ const PeopleCard = ({ people }) => {
                 <CardContent>
                     <Grid container>
                         <Grid item>
-                            <Typography variant="h6" component="p" >
+                            <Typography variant="h6" component="h2" >
                                 {people.name}
                             </Typography>
                         </Grid>
