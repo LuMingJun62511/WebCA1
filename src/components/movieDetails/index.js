@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -8,8 +8,9 @@ import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
-import MovieReviews from "../movieReviews";
 import ActorList from "../actorList";
+const MovieReviews = lazy(() => import("../movieReviews"));
+
 
 
 const root = {
@@ -22,7 +23,7 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
-const MovieDetails = ({ movie , actors }) => {
+const MovieDetails = ({ movie, actors }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
     <>
@@ -74,7 +75,7 @@ const MovieDetails = ({ movie , actors }) => {
         ))}
       </Paper>
 
-      <ActorList actorsCast = {actors}/>
+      <ActorList actorsCast={actors} />
 
       <Fab
         color="secondary"
@@ -90,7 +91,9 @@ const MovieDetails = ({ movie , actors }) => {
         Reviews
       </Fab>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <MovieReviews movie={movie} />
+        <Suspense fallback={<h1>Loading page</h1>}>
+          <MovieReviews movie={movie} />
+        </Suspense>
       </Drawer>
     </>
   );

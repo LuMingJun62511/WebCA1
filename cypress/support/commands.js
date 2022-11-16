@@ -23,3 +23,20 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('requestPopular', (page) => {
+    cy.request(
+        `https://api.themoviedb.org/3/person/popular?api_key=${Cypress.env("TMDB_KEY")}&language=en-US&page=${page}`
+    )
+})
+
+
+
+Cypress.Commands.add('jumpToPop', () => {
+    cy.visit("/people/popular");
+})
+
+
+//今日份战略目标
+//3，新建只负责部署的分支，
+//提交gitlab并完成readme，
